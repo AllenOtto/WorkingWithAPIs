@@ -51,6 +51,8 @@ getDrink()
 // NASA's Picture of the day API
 // =============================
 
+document.querySelector('button').addEventListener('click', apod);
+
 function apod() {
     fetch("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")
         .then(res => res.json())
@@ -66,8 +68,17 @@ function apod() {
         });
 }
 
-apod();
-
+function nearEarthObjects() {
+    fetch('https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-08&api_key=DEMO_KEY')
+        .then(res => res.json())
+        .then(data => {
+            // console.log(data);
+            console.log(data.near_earth_objects)
+        })
+        .catch(err => {
+            console.log("Error: " + err);
+        });
+}
 
 
 
