@@ -118,17 +118,17 @@ function someFunc() {
 }
 
 // Create Slideshow with returned JSON data
-document.querySelector('button').addEventListener(setInterval(getDrinks, 10000))
+// document.querySelector('button').addEventListener(setInterval(getDrinks, 10000))
 
 
 function getDrinks() {
-    const drink = document.querySelector('input').value 
-    
+    const drink = document.querySelector('input').value
+
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
         .then(res => res.json())
         .then(jsonData => {
             console.log(jsonData);
-            let count = Math.floor(Math.random() * jsonData.drinks.length)
+            let count = Math.floor(Math.random() * jsonData.drinks.length);
             document.querySelector('img').src = jsonData.drinks[count].strDrinkThumb;
             document.querySelector('span').innerText = jsonData.drinks[count].strInstructions;
             document.querySelector('h2').innerText = jsonData.drinks[count].strDrink;
@@ -139,6 +139,27 @@ function getDrinks() {
 }
 
 // setInterval(getDrinks, 15000)
+
+// Get elements in fetched array to run in carousel sequentially
+
+// document.querySelector('button').addEventListener('click', setInterval(getDrinks, 10000));
+
+function getDrinks() {
+    const drink = document.querySelector('input').value
+
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
+        .then(res => res.json())
+        .then(jsonData => {
+            console.log(jsonData.drinks);
+        })
+        .catch(err => {
+            console.log("Error: " + err);
+        });
+}
+
+
+
+
 
 
 
