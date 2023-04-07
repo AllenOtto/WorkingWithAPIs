@@ -65,6 +65,7 @@ function apod() {
         });
 }
 
+
 // Near Earth Objects
 
 // document.querySelector('button').addEventListener('click', nearEarthObjects);
@@ -138,32 +139,70 @@ function getDrinks() {
         });
 }
 
+
+class NetflixShow {
+    constructor(title, duration, starring, genre) {
+        this.title = title;
+        this.duration = duration;
+        this.starring = starring ;
+        this.genre = genre;
+    }
+
+    playThemeSong() {
+        console.log("Enter at your own peril. Past the bolted doors where impossible things may happen that the world's never seen before...");
+    }
+
+    startMovie() {
+        console.log("Hey Deedee!! What are you doing in my labooratory!");
+    }
+
+    endMovie() {
+        console.log("Play ending theme song")
+    }
+}
+
+const show1 = new NetflixShow("Desperate Housewives", "50 mins", ['Bree', 'Lynette', 'Gabby', 'Susan'], "drama");
+
+// show1.playThemeSong()
+// console.log(show1.starring[0], show1.starring[3])
+
+
 // setInterval(getDrinks, 15000)
 
 // Get elements in fetched array to run in carousel sequentially
 
-// document.querySelector('button').addEventListener('click', setInterval(getDrinks, 10000));
+// document.querySelector('button').addEventListener('click', setInterval(getDrinks(), 10000));
 
-function getDrinks() {
-    const drink = document.querySelector('input').value
+// function getDrinks() {
+//     let drink = document.querySelector('input').value
 
-    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
+//     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
+//         .then(res => res.json())
+//         .then(jsonData => {
+//             document.querySelector('img').src = jsonData.drinks.strDrinkThumb;
+//         })
+//         .catch(err => {
+//             console.log("Error: " + err);
+//         });
+// }
+
+
+// Example fetch using pokemonapi.co
+document.querySelector('button').addEventListener('click', getFetch)
+
+function getFetch() {
+    const choice = document.querySelector('input').value
+    const url = 'https://pokeapi.co/api/v2/pokemon/'+choice
+
+    fetch(url)
         .then(res => res.json())
-        .then(jsonData => {
-            console.log(jsonData.drinks);
+        .then(data => {
+            console.log(data);
         })
         .catch(err => {
             console.log("Error: " + err);
         });
 }
-
-
-
-
-
-
-
-
 
 
 
