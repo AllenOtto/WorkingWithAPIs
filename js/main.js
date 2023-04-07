@@ -74,7 +74,7 @@ function nearEarthObjects() {
         .then(res => res.json())
         .then(data => {
             // console.log(data);
-            console.log(data.near_earth_objects)
+            console.log(data.near_earth_objects);
         })
         .catch(err => {
             console.log("Error: " + err);
@@ -83,7 +83,7 @@ function nearEarthObjects() {
 
 // Asteroid data
 
-document.querySelector('button').addEventListener('click', browseAsteroidData);
+// document.querySelector('button').addEventListener('click', browseAsteroidData);
 
 function browseAsteroidData() {
     fetch('https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=DEMO_KEY')
@@ -100,18 +100,23 @@ function browseAsteroidData() {
         });
 }
 
-// Covid Injection Information
 
-function covidVaccinatInfo() {
-    fetch("https://api.nasa.gov/DONKI/CME?startDate=yyyy-MM-dd&endDate=yyyy-MM-dd&api_key=DEMO_KEY")
+document.querySelector('button').addEventListener('click', someFunc)
+
+function someFunc() {
+    fetch('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid=552')
+        .then(res => res.json())
+        .then(jsonData => {
+            console.log(jsonData.ingredients[0]);
+            const ing = jsonData.ingredients[0];
+            document.querySelector('p').innerText = ing.strDescription;
+            document.querySelector('h2').innerText = ing.strIngredient;
+            // document.querySelector('span').innerText = ing.
+        })
+        .catch(err => {
+            console.log('Error' + err);
+        });
 }
-
-
-
-
-
-
-
 
 
 
