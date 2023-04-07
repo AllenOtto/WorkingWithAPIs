@@ -48,7 +48,7 @@ function getDrink() {
 // NASA's Picture of the day API
 // =============================
 
-// document.querySelector('button').addEventListener('click', apod);
+// setInterval(apod, 10000)
 
 function apod() {
     fetch("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")
@@ -56,7 +56,7 @@ function apod() {
         .then(data => {
             console.log(data);
             document.querySelector('h2').innerText = data.title
-            document.querySelector("img").src = data.url
+            document.querySelector('img').src = data.url
             document.querySelector('p').innerText = data.explanation
             document.querySelector('span').innerText = data.date
         })
@@ -101,7 +101,7 @@ function browseAsteroidData() {
 }
 
 
-document.querySelector('button').addEventListener('click', someFunc)
+// setInterval(someFunc, 1000)
 
 function someFunc() {
     fetch('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid=552')
@@ -111,12 +111,34 @@ function someFunc() {
             const ing = jsonData.ingredients[0];
             document.querySelector('p').innerText = ing.strDescription;
             document.querySelector('h2').innerText = ing.strIngredient;
-            // document.querySelector('span').innerText = ing.
         })
         .catch(err => {
             console.log('Error' + err);
         });
 }
+
+// Create Slideshow with returned JSON data
+document.querySelector('button').addEventListener(setInterval(getDrinks, 10000))
+
+
+function getDrinks() {
+    const drink = document.querySelector('input').value 
+    
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
+        .then(res => res.json())
+        .then(jsonData => {
+            console.log(jsonData);
+            let count = Math.floor(Math.random() * jsonData.drinks.length)
+            document.querySelector('img').src = jsonData.drinks[count].strDrinkThumb;
+            document.querySelector('span').innerText = jsonData.drinks[count].strInstructions;
+            document.querySelector('h2').innerText = jsonData.drinks[count].strDrink;
+        })
+        .catch(err => {
+            console.log("Error: " + err);
+        });
+}
+
+// setInterval(getDrinks, 15000)
 
 
 
