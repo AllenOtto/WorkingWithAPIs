@@ -186,22 +186,14 @@ const show1 = new NetflixShow("Desperate Housewives", "50 mins", ['Bree', 'Lynet
 //         });
 // }
 
-
-// Example fetch using pokemonapi.co
-document.querySelector('button').addEventListener('click', getFetch)
-
-function getFetch() {
-    const choice = document.querySelector('input').value
-    const url = 'https://pokeapi.co/api/v2/pokemon/'+choice
-
-    fetch(url)
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-        })
-        .catch(err => {
-            console.log("Error: " + err);
-        });
+function fixTheMeerkat(arr) {
+ //your code here
+  let head = arr.pop()
+  let tail = arr.shift()
+  arr.push(tail)
+  arr.unshift(head)
+  
+  return arr
 }
 
 
