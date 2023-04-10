@@ -186,15 +186,40 @@ const show1 = new NetflixShow("Desperate Housewives", "50 mins", ['Bree', 'Lynet
 //         });
 // }
 
-function fixTheMeerkat(arr) {
- //your code here
-  let head = arr.pop()
-  let tail = arr.shift()
-  arr.push(tail)
-  arr.unshift(head)
+// function fixTheMeerkat(arr) {
+//  //your code here
+//   let head = arr.pop()
+//   let tail = arr.shift()
+//   arr.push(tail)
+//   arr.unshift(head)
   
-  return arr
+//   return arr
+// }
+
+
+var countSheep = function (num){
+  //your code here
+  let str = "";
+  
+  for(let i = 1; i < num+1; i++) {
+    str += `'${i} sleep...'`;
+  }
+  
+  return str
 }
+
+console.log(countSheep(3))
+
+
+
+
+
+
+
+
+
+
+
 
 
 
