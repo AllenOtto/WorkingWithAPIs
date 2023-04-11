@@ -197,18 +197,47 @@ const show1 = new NetflixShow("Desperate Housewives", "50 mins", ['Bree', 'Lynet
 // }
 
 
-var countSheep = function (num){
-  //your code here
-  let str = "";
+// var countSheep = function (num){
+//   //your code here
+//   let str = "";
   
-  for(let i = 1; i < num+1; i++) {
-    str += `${i} sleep...`;
+//   for(let i = 1; i < num+1; i++) {
+//     str += `${i} sleep...`;
+//   }
+  
+//   return str
+// }
+
+// console.log(countSheep(3))
+
+
+function updateLight(current) {
+  let output
+  
+  //your code here!
+  switch(current) {
+      case (current === 'green'):
+          output = "yellow"
+          break;
+      case (current === 'yellow'):
+          output = "red"
+          break;
+      case (current === 'red'):
+          output = "green"
+          break
   }
   
-  return str
+  return output;
+
 }
 
-console.log(countSheep(3))
+updateLight('red')
+
+
+
+
+
+
 
 
 
