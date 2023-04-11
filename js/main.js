@@ -230,27 +230,38 @@ const show1 = new NetflixShow("Desperate Housewives", "50 mins", ['Bree', 'Lynet
 
 // Create a button that adds 1 to a botScore stored in localStorage
 
-if(!localStorage.getItem('botScore')) {
-    localStorage.setItem('botScore', 0)
-    console.log("set now")
-} else {
-    console.log('available')
+// if(!localStorage.getItem('botScore')) {
+//     localStorage.setItem('botScore', 0)
+//     console.log("set now")
+// } else {
+//     console.log('available')
+// }
+
+// // localStorage.removeItem('botScore')
+
+// document.querySelector('button').addEventListener('click', addOne)
+
+// function addOne() {
+//     let value = +localStorage.getItem('botScore')
+//     value += 1
+
+//     localStorage.setItem('botScore', value)
+
+//     document.querySelector("h2").innerText = value
+// }
+
+document.querySelector("button").addEventListener('click', playGame)
+
+function playGame() {
+    fetch(`https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1`)
+        .then(res => res.json())
+        .then(jsonData => {
+            console.log(jsonData.remaining)
+        })
+        .catch(err => {
+            console.log("Error: " + err);
+        });
 }
-
-// localStorage.removeItem('botScore')
-
-document.querySelector('button').addEventListener('click', addOne)
-
-function addOne() {
-    let value = +localStorage.getItem('botScore')
-    value += 1
-
-    localStorage.setItem('botScore', value)
-
-    document.querySelector("h2").innerText = value
-}
-
-
 
 
 
