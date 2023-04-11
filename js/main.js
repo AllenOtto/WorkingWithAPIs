@@ -215,23 +215,18 @@ function updateLight(current) {
   let output
   
   //your code here!
-  switch(current) {
-      case (current === 'green'):
-          output = "yellow"
-          break;
-      case (current === 'yellow'):
-          output = "red"
-          break;
-      case (current === 'red'):
-          output = "green"
-          break
+  if(current === 'green') {
+    output = 'yellow'
+  } else if(current === 'yellow') {
+    output = 'red'
+  } else if(current === 'red') {
+    output = 'green'
   }
   
-  return output;
-
+  return output
 }
 
-updateLight('red')
+console.log(updateLight('green'))
 
 
 
