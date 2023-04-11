@@ -211,23 +211,44 @@ const show1 = new NetflixShow("Desperate Housewives", "50 mins", ['Bree', 'Lynet
 // console.log(countSheep(3))
 
 
-function updateLight(current) {
-  let output
+// function updateLight(current) {
+//   let output
   
-  //your code here!
-  if(current === 'green') {
-    output = 'yellow'
-  } else if(current === 'yellow') {
-    output = 'red'
-  } else if(current === 'red') {
-    output = 'green'
-  }
+//   //your code here!
+//   if(current === 'green') {
+//     output = 'yellow'
+//   } else if(current === 'yellow') {
+//     output = 'red'
+//   } else if(current === 'red') {
+//     output = 'green'
+//   }
   
-  return output
+//   return output
+// }
+
+// console.log(updateLight('yellow'))
+
+// Create a button that adds 1 to a botScore stored in localStorage
+
+if(!localStorage.getItem('botScore')) {
+    localStorage.setItem('botScore', 0)
+    console.log("set now")
+} else {
+    console.log('available')
 }
 
-console.log(updateLight('green'))
+// localStorage.removeItem('botScore')
 
+document.querySelector('button').addEventListener('click', addOne)
+
+function addOne() {
+    let value = +localStorage.getItem('botScore')
+    value += 1
+
+    localStorage.setItem('botScore', value)
+
+    document.querySelector("h2").innerText = value
+}
 
 
 
