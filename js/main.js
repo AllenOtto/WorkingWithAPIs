@@ -250,22 +250,53 @@ const show1 = new NetflixShow("Desperate Housewives", "50 mins", ['Bree', 'Lynet
 //     document.querySelector("h2").innerText = value
 // }
 
-document.querySelector("button").addEventListener('click', playGame)
 
-function playGame() {
-    fetch(`https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1`)
-        .then(res => res.json())
-        .then(jsonData => {
-            console.log(jsonData.remaining)
-        })
-        .catch(err => {
-            console.log("Error: " + err);
-        });
+// ************* Animal Feast ***********
+
+/*
+
+All of the animals are having a feast! Each animal is bringing one dish. There is just one rule: the dish must start and end with the same letters as the animal's name. For example, the great blue heron is bringing garlic naan and the chickadee is bringing chocolate cake.
+
+Write a function feast that takes the animal's name and dish as arguments and returns true or false to indicate whether the beast is allowed to bring the dish to the feast.
+
+Assume that beast and dish are always lowercase strings, and that each has at least two letters. beast and dish may contain hyphens and spaces, but these will not appear at the beginning or end of the string. They will not contain numerals.
+
+*/
+
+
+function feast(beast, dish) {
+//your function here
+  
+  let firstLetterBeast = beast[0]
+  let lastLetterBeast = beast[beast.length - 1]
+  let firstLetterDish = dish[0]
+  let lastLetterDish = dish[dish.length - 1]
+  
+  if(firstLetterBeast === firstLetterDish & lastLetterBeast === lastLetterDish) {
+    return true
+  } else {
+    return false
+  }
 }
 
+// console.log(feast("chickadee", "chocolate cake"))
 
+// document.querySelector("button").addEventListener('click', playGame)
 
-
+// function playGame() {
+//     fetch(`https://deckofcardsapi.com/api/deck/61x7o1c2fgg6/draw/?count=2`)
+//         .then(res => res.json())
+//         .then(jsonData => {
+//             console.log(jsonData)
+//             console.log(jsonData.cards[0].images[0].image)
+//             console.log(jsonData.cards[0].images[1].image)
+//             console.log(jsonData.cards[1].images[0].image)
+//             console.log(jsonData.cards[1].images[1].image)
+//         })
+//         .catch(err => {
+//             console.log("Error: " + err);
+//         });
+// }
 
 
 
