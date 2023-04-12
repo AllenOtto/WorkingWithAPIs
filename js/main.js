@@ -264,39 +264,41 @@ Assume that beast and dish are always lowercase strings, and that each has at le
 */
 
 
-function feast(beast, dish) {
-//your function here
+// function feast(beast, dish) {
+// //your function here
   
-  let firstLetterBeast = beast[0]
-  let lastLetterBeast = beast[beast.length - 1]
-  let firstLetterDish = dish[0]
-  let lastLetterDish = dish[dish.length - 1]
+//   let firstLetterBeast = beast[0]
+//   let lastLetterBeast = beast[beast.length - 1]
+//   let firstLetterDish = dish[0]
+//   let lastLetterDish = dish[dish.length - 1]
   
-  if(firstLetterBeast === firstLetterDish & lastLetterBeast === lastLetterDish) {
-    return true
-  } else {
-    return false
-  }
-}
+//   if(firstLetterBeast === firstLetterDish & lastLetterBeast === lastLetterDish) {
+//     return true
+//   } else {
+//     return false
+//   }
+// }
 
 // console.log(feast("chickadee", "chocolate cake"))
 
-// document.querySelector("button").addEventListener('click', playGame)
+// **************************************
 
-// function playGame() {
-//     fetch(`https://deckofcardsapi.com/api/deck/61x7o1c2fgg6/draw/?count=2`)
-//         .then(res => res.json())
-//         .then(jsonData => {
-//             console.log(jsonData)
-//             console.log(jsonData.cards[0].images[0].image)
-//             console.log(jsonData.cards[0].images[1].image)
-//             console.log(jsonData.cards[1].images[0].image)
-//             console.log(jsonData.cards[1].images[1].image)
-//         })
-//         .catch(err => {
-//             console.log("Error: " + err);
-//         });
-// }
+document.querySelector("button").addEventListener('click', playGame)
+
+function playGame() {
+    fetch(`https://deckofcardsapi.com/api/deck/61x7o1c2fgg6/draw/?count=2`)
+        .then(res => res.json())
+        .then(jsonData => {
+            // document.querySelector("img").src = jsonData.cards[0].images.svg
+            // document.querySelector("h2").innerText = jsonData.cards[0].value
+            console.log(jsonData)
+            console.log(jsonData.cards[0].image)
+            console.log(jsonData.cards[1].image)
+        })
+        .catch(err => {
+            console.log("Error: " + err);
+        });
+}
 
 
 
