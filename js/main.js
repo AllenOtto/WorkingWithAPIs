@@ -283,22 +283,40 @@ Assume that beast and dish are always lowercase strings, and that each has at le
 
 // **************************************
 
-document.querySelector("button").addEventListener('click', playGame)
+// document.querySelector("button").addEventListener('click', playGame)
 
-function playGame() {
-    fetch(`https://deckofcardsapi.com/api/deck/61x7o1c2fgg6/draw/?count=2`)
-        .then(res => res.json())
-        .then(jsonData => {
-            // document.querySelector("img").src = jsonData.cards[0].images.svg
-            // document.querySelector("h2").innerText = jsonData.cards[0].value
-            console.log(jsonData)
-            console.log(jsonData.cards[0].image)
-            console.log(jsonData.cards[1].image)
-        })
-        .catch(err => {
-            console.log("Error: " + err);
-        });
+// function playGame() {
+//     fetch(`https://deckofcardsapi.com/api/deck/61x7o1c2fgg6/draw/?count=2`)
+//         .then(res => res.json())
+//         .then(jsonData => {
+//             // document.querySelector("img").src = jsonData.cards[0].images.svg
+//             // document.querySelector("h2").innerText = jsonData.cards[0].value
+//             console.log(jsonData)
+//             console.log(jsonData.cards[0].image)
+//             console.log(jsonData.cards[1].image)
+//         })
+//         .catch(err => {
+//             console.log("Error: " + err);
+//         });
+// }
+
+// ****************************************
+
+document.querySelector("button").addEventListener('click', getFunc)
+
+async function getFunc() {
+    try {
+        const res = await fetch(`https://api.kanye.rest`)
+        const jsonData = await res.json()
+        console.log(jsonData)
+    } catch(err) {
+        console.log(err)
+    }
 }
+
+
+
+
 
 
 
